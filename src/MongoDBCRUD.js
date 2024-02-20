@@ -11,7 +11,7 @@ const bodyParser = require("body-parser");
 mongoose.connect(
     "mongodb://admin:LKTyhq66146@node56820-tanakorn-noderest.proen.app.ruk-com.cloud:11786",
     {
-        userNewUrlParser: true,
+        useNewUrlParser: true,
         useUnifiedTopology: true,
     }
 );
@@ -60,7 +60,7 @@ app.get("/books", async (req, res) => {
 });
 
 // Read one
-app.get("/books:id", async (req, res) => {
+app.get("/books/:id", async (req, res) => {
     try {
         const book = await Book.findOne({id:req.params.id});
         res.send(book);
